@@ -1,10 +1,17 @@
 <template>
-  <div class="home flex-grow-1 d-flex flex-column align-items-center justify-content-center">
-    <div class="home-card p-5 bg-white rounded elevation-3">
-      <img src="https://bcw.blob.core.windows.net/public/img/8600856373152463" alt="CodeWorks Logo" class="rounded-circle">
-      <h1 class="my-5 bg-dark text-white p-3 rounded text-center">
-        Vue 3 Starter
-      </h1>
+  <div class="row">
+    <div class="col-12 d-flex justify-content-center">
+      <img
+        src="https://media.istockphoto.com/photos/concert-stage-people-are-visible-waving-and-clapping-silhouettes-are-picture-id1194060639?k=20&m=1194060639&s=612x612&w=0&h=x-0MqkUFwRVvf52GtrM23XrD02r-MB2y_hlOKaQVvvs="
+        alt=""
+        class="img-fluid"
+      />
+    </div>
+    <div class="row">
+      <div class="col-3">event</div>
+      <div class="col-3">event</div>
+      <div class="col-3">event</div>
+      <div class="col-3">event</div>
     </div>
   </div>
 </template>
@@ -16,15 +23,15 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.home{
+.home {
   display: grid;
   height: 80vh;
   place-content: center;
   text-align: center;
   user-select: none;
-  .home-card{
+  .home-card {
     width: 50vw;
-    > img{
+    > img {
       height: 200px;
       max-width: 200px;
       width: 100%;

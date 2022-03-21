@@ -29,20 +29,14 @@ class TowerEventsService {
     }
     original.name = body.name ? body.name : original.name
     original.description = body.description ? body.description : original.description
-    // original.isCanceled = body.isCanceled == null ? original.isCanceled : body.isCanceled
-    // original.coverImg = body.coverImg || original.coverImg
-    // original.location = body.location || original.location
-    // original.capacity = body.capacity || original.capacity
-    // original.startDate = body.startDate || original.startDate
-    // original.type = body.type || original.type
     await original.save()
     return original
   }
-  async cancel(id) {
-    const original = await dbContext.TowerEvents.findById(id)
+  async cancel(eventId) {
+    const original = await dbContext.TowerEvents.findById(eventId)
     original.isCanceled = !original.isCanceled
     await original.save()
-    return original.isCanceled ? true : false
+    return original.isCanceled
   }
 }
 export const towerEventsService = new TowerEventsService()

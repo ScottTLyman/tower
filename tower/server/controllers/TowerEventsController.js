@@ -11,7 +11,7 @@ export class TowerEventsController extends BaseController {
       .use(Auth0Provider.getAuthorizedUserInfo)
       .post('', this.create)
       .put('/:id', this.edit)
-      .delete(':/id', this.cancel)
+      .delete('/:id', this.cancel)
   }
   async getAll(req, res, next) {
     try {

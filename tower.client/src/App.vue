@@ -2,14 +2,15 @@
   <header>
     <Navbar />
   </header>
-  <main>
-    <router-view />
-  </main>
-  <footer>
-    <div class="bg-dark text-light text-center p-4">
-      Made with 💖 by CodeWorks
+  <main class="container-fluid flex-grow-1 bg-dark">
+    <div class="row">
+      <div class="col-11">
+        <router-view />
+      </div>
+      <div class="col-1">MOVE LOGIN HERE</div>
     </div>
-  </footer>
+  </main>
+  <footer></footer>
 </template>
 
 <script>
@@ -26,5 +27,4 @@ export default {
 </script>
 <style lang="scss">
 @import "./assets/scss/main.scss";
-
 </style>
