@@ -1,19 +1,28 @@
 <template>
-  <span class="">
-    <button
-      class="
-        btn btn-success
-        selectable
-        shadow
-        lighten-30
-        text-uppercase
-        my-2 my-lg-0
-      "
-      @click="login"
+  <span>
+    <div
       v-if="!user.isAuthenticated"
+      class="d-flex flex-column align-items-center"
     >
-      Login
-    </button>
+      <button
+        class="
+          btn btn-success
+          selectable
+          shadow
+          lighten-30
+          text-uppercase
+          my-2 my-lg-0
+        "
+        @click="login"
+      >
+        Login
+      </button>
+      <div>
+        <router-link :to="{ name: 'Events' }">
+          <div class="hoverable my-2 fw-bold">Home</div>
+        </router-link>
+      </div>
+    </div>
 
     <div class="bg-dark lighten-10 my-2 my-lg-0" v-else>
       <!-- <div
@@ -42,7 +51,7 @@
           />
         </div>
         <div>
-          <router-link :to="{ name: 'Home' }">
+          <router-link :to="{ name: 'Events' }">
             <div class="hoverable my-2">Home</div>
           </router-link>
         </div>

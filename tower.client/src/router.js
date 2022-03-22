@@ -8,13 +8,13 @@ function loadPage(page) {
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: loadPage('HomePage')
+    name: 'Events',
+    component: loadPage('EventsPage')
   },
   {
-    path: '/about',
-    name: 'About',
-    component: loadPage('AboutPage')
+    path: '/events/:id',
+    name: 'EventDetails',
+    component: loadPage('EventDetailsPage')
   },
   {
     path: '/account',
