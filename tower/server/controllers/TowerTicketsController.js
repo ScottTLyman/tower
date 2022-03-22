@@ -14,7 +14,6 @@ export class TowerTicketsController extends BaseController {
   async create(req, res, next) {
     try {
       req.body.accountId = req.userInfo.id
-      // req.body.eventId = req.params.eventId
       const ticket = await towerTicketsService.create(req.body)
       return res.send(ticket)
     } catch (error) {
@@ -23,8 +22,8 @@ export class TowerTicketsController extends BaseController {
   }
   async remove(req, res, next) {
     try {
-      const userId = req.userInfo.ID
       const ticketId = req.params.id
+      const userId = req.userInfo.id
       await towerTicketsService.remove(ticketId, userId)
       return res.send('Ticket destroyed')
     } catch (error) {

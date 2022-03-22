@@ -15,7 +15,11 @@ class TowerEventsService {
     return towerEvent
   }
   async create(body) {
+    const timeNow = new Date()
     const towerEvent = await dbContext.TowerEvents.create(body)
+    if (timeNow >= new Date(body.createdAt)) {
+      throw new BadRequest('Event date must be in future')
+    }
     await towerEvent.populate('creator', 'name picture')
     return towerEvent
   }
@@ -32,8 +36,11 @@ class TowerEventsService {
     await original.save()
     return original
   }
-  async cancel(eventId) {
+  async cancel(eventId, userId) {
     const original = await dbContext.TowerEvents.findById(eventId)
+    if (original.creatorId.toString() !== userId) {
+      throw new Forbidden('This is not your Event!')
+    }
     original.isCanceled = !original.isCanceled
     await original.save()
     return original.isCanceled

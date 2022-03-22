@@ -1,10 +1,13 @@
 import { dbContext } from "../db/DbContext"
-import { Forbidden } from "../utils/Errors"
+import { BadRequest, Forbidden } from "../utils/Errors"
 
 class TowerTicketsService {
   async create(body) {
-    const ticket = await dbContext.TowerTickets.create(body)
     let event = await dbContext.TowerEvents.findById(body.eventId)
+    if (event.capacity === 0) {
+      throw new BadRequest('Event capacity reached')
+    }
+    const ticket = await dbContext.TowerTickets.create(body)
     event.capacity = event.capacity -= 1
     await event.save()
     return ticket
@@ -34,11 +37,12 @@ class TowerTicketsService {
     })
   }
   async remove(ticketId, userId) {
-    await this.getMyTickets(ticketId)
-    if (ticketId.creatorId.toString() !== userId) {
+    const original = await dbContext.TowerTickets.findById(ticketId)
+    if (original.creatorId !== userId) {
       throw new Forbidden('Can only delete your own ticket')
     }
-    await dbContext.TowerTickets.findByIdAndDelete(ticketId)
+    await original.remove()
+    return original
   }
 }
 export const towerTicketsService = new TowerTicketsService
