@@ -17,7 +17,7 @@ class TowerEventsService {
   async create(body) {
     const timeNow = new Date()
     const towerEvent = await dbContext.TowerEvents.create(body)
-    if (timeNow >= new Date(body.createdAt)) {
+    if (timeNow >= new Date(body.startDate)) {
       throw new BadRequest('Event date must be in future')
     }
     await towerEvent.populate('creator', 'name picture')
