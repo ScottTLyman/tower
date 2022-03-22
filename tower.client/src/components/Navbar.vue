@@ -1,16 +1,14 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
-    <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
-      <div class="d-flex align-items-center text-primary">
-        <img
-          alt="logo"
-          src="https://cdn3.iconfinder.com/data/icons/buildings-places/512/Venue-512.png"
-          height="45"
-          class=""
-        />
-        <h3 class="ms-2">TOWER EVENTS</h3>
-      </div>
-    </router-link>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark lighten-10 px-3">
+    <div class="d-flex align-items-center text-primary">
+      <img
+        alt="logo"
+        src="https://cdn3.iconfinder.com/data/icons/buildings-places/512/Venue-512.png"
+        height="45"
+        class=""
+      />
+      <h1 class="ms-2">TOWER EVENTS</h1>
+    </div>
     <button
       class="navbar-toggler"
       type="button"
@@ -25,7 +23,6 @@
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav me-auto"></ul>
       <!-- LOGIN COMPONENT HERE -->
-      <Login />
     </div>
   </nav>
 </template>

@@ -35,7 +35,7 @@ export class TowerEventsController extends BaseController {
   }
   async getEventTickets(req, res, next) {
     try {
-      const tickets = await towerTicketsService.getEventTickets({ eventId: req.params.id })
+      const tickets = await towerTicketsService.getEventTickets({ eventId: req.params.eventId })
       res.send(tickets)
     } catch (error) {
       next(error)
