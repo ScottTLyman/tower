@@ -157,6 +157,7 @@ export default {
       async createTicket() {
         try {
           await ticketsService.createTicket(ticket.value, route.params.id)
+          await eventsService.getEventById(route.params.id)
           await ticketsService.getEventTickets(route.params.id)
         } catch (error) {
           logger.error(error)
