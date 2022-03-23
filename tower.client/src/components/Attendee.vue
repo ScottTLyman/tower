@@ -1,6 +1,13 @@
 <template>
   <div class="m-0">
-    <img :src="ticket.picture" style="height: 45px; width: 45px" alt="" />
+    <img
+      :src="ticket.picture"
+      style="height: 45px; width: 45px"
+      class="rounded-circle"
+      alt=""
+      aria-label="ticket.name"
+      :title="ticket.name"
+    />
   </div>
 </template>
 

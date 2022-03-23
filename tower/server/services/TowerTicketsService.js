@@ -38,9 +38,12 @@ class TowerTicketsService {
   }
   async remove(ticketId, userId) {
     const original = await dbContext.TowerTickets.findById(ticketId)
-    if (original.creatorId !== userId) {
+    if (original.accountId.toString() !== userId) {
       throw new Forbidden('Can only delete your own ticket')
     }
+    let event = await dbContext.TowerEvents.findById(original.eventId)
+    event.capacity = event.capacity += 1
+    await event.save()
     await original.remove()
     return original
   }

@@ -6,15 +6,18 @@
       height: '30vh',
     }"
   >
-    <div class="p-2 bg-see-thru selectable w-100">
+    <div class="p-2 bg-see-thru selectable w-100 rounded">
       <router-link :to="'/events/' + event.id" class="text-light">
         <p class="m-0">{{ event.name }}</p>
         <p class="m-0">{{ event.location }}</p>
         <p class="m-0">{{ new Date(event.startDate).toLocaleDateString() }}</p>
-        <p class="m-0" v-if="event.capacity > 0">
-          Tickets Available: {{ event.capacity }}
-        </p>
-        <h2 v-else class="text-danger fw-bold m-0">SOLD OUT</h2>
+        <h2 v-if="event.isCanceled == true" class="text-danger fw-bold m-0">
+          EVENT CANCELED
+        </h2>
+        <h2 v-else-if="event.capacity === 0" class="text-danger fw-bold m-0">
+          SOLD OUT
+        </h2>
+        <p class="m-0" v-else>Tickets Available: {{ event.capacity }}</p>
       </router-link>
     </div>
   </div>

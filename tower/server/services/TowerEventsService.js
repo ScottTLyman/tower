@@ -41,6 +41,9 @@ class TowerEventsService {
     if (original.creatorId.toString() !== userId) {
       throw new Forbidden('This is not your Event!')
     }
+    if (original.isCanceled == true) {
+      throw new BadRequest('Event already Canceled')
+    }
     original.isCanceled = !original.isCanceled
     await original.save()
     return original.isCanceled

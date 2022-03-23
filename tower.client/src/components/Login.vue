@@ -60,6 +60,21 @@
             <div class="hoverable my-2">Account</div>
           </router-link>
         </div>
+        <div>
+          <button
+            data-bs-toggle="modal"
+            data-bs-target="#create-event"
+            class="btn btn-info fw-bold"
+          >
+            Add Event
+          </button>
+        </div>
+        <div>
+          <Modal id="create-event">
+            <template #title>Create Event</template>
+            <template #body><CreateEvent /></template>
+          </Modal>
+        </div>
         <div class="hoverable text-danger my-2" @click="logout">
           <button
             class="btn btn-secondary fw-bold"
