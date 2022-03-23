@@ -8,7 +8,9 @@
   >
     <div class="p-2 bg-see-thru selectable w-100 rounded">
       <router-link :to="'/events/' + event.id" class="text-light">
-        <p class="m-0">{{ event.name }}</p>
+        <p class="m-0">
+          {{ event.name }}
+        </p>
         <p class="m-0">{{ event.location }}</p>
         <p class="m-0">{{ new Date(event.startDate).toLocaleDateString() }}</p>
         <h2 v-if="event.isCanceled == true" class="text-danger fw-bold m-0">

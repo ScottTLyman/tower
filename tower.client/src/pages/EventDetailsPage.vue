@@ -6,9 +6,12 @@
     <div class="col-9 d-flex flex-column justify-content-between">
       <div class="d-flex justify-content-between">
         <div>
-          <h3>
-            {{ event.name }}
-          </h3>
+          <div class="d-flex">
+            <h3>
+              {{ event.name }}
+            </h3>
+            <p class="ms-2">A {{ event.type }} Event</p>
+          </div>
           <h6>{{ event.location }}</h6>
         </div>
         <div>
