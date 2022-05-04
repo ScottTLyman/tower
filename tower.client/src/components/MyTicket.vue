@@ -1,6 +1,6 @@
 <template>
   <div
-    class="shadow rounded mt-3 p-2 d-flex align-items-end"
+    class="shadow rounded mt-3 p-2 d-flex align-items-end img-fluid"
     :style="{
       'background-image': `url(${ticket.coverImg})`,
       height: '30vh',

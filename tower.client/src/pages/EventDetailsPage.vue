@@ -65,7 +65,9 @@
             Cancel
           </button>
         </div>
-        <div v-if="!hasTicket">
+        <div
+          v-if="!hasTicket && event.isCanceled == false && user.isAuthenticated"
+        >
           <button @click="createTicket" class="btn btn-outline-info fw-bold">
             Attend <i class="mdi mdi-account-check"></i>
           </button>
@@ -153,6 +155,7 @@ export default {
       ticket,
       comment,
       account: computed(() => AppState.account),
+      user: computed(() => AppState.user),
       event: computed(() => AppState.activeEvent),
       tickets: computed(() => AppState.tickets),
       hasTicket: computed(() => AppState.tickets.find(t => t.accountId == t.id)),
